@@ -1710,35 +1710,25 @@ textarea.form-control {
 }
 
 
-/* Fix for white line on right */
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* Fix for 3D scene overflow */
-.scene {
-    overflow: hidden;
-    width: 100vw;
-}
-
-/* Responsive newsletter form fix */
-.newsletter-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.newsletter-form input,
-.newsletter-form button {
-    width: 100%;
-    border-radius: 5px;
-}
-
-/* Footer responsive fix */
+/* Footer responsive fix only */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        border-radius: 0 0 5px 5px;
     }
 }
