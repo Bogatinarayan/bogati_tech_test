@@ -1,0 +1,48 @@
+Bogati Tech company founded by Narayan Bogati digital marketing by Bogati Tech, website development by Bogati Tech, app development by Bogati Tech, business consulting by Bogati Tech, photography and videography by Bogati Tech, graphic designing by Bogati Tech tech company founded by Narayan Bogati in Nepal
+
+
+
+
+
+<h4>Enter your mail or number</h4>
+                    <form class="newsletter-form">
+                        <input type="text" placeholder="Your email address or phone number" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    // ✅ Newsletter Form Submission - Web3Forms
+const newsletterForm = document.querySelector('.newsletter-form');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const input = newsletterForm.querySelector('input').value;
+
+        const formData = new FormData();
+        formData.append('access_key', '28d80800-0a02-4d03-84de-80a5ffe0a183');
+        formData.append('Form Type', 'Newsletter Contact');
+        formData.append('Contact Info (Email or Phone)', input);
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                alert('Thank you! We’ll get in touch with you soon.');
+                newsletterForm.reset();
+            } else {
+                alert('There was an error. Please try again later.');
+            }
+        } catch (error) {
+            alert('Something went wrong. Please try again later.');
+        }
+    });
+}
